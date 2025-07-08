@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Expense Tracker</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="chat.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Glassmorphism Header -->
+      <header class="app-header" data-aos="fade-down">
+        <h1>
+          <span class="material-icons-round">account_balance_wallet</span>
+          Quantum<span class="gradient-text">Expense</span>
+        </h1>
+        <div class="user-avatar">
+          <img src="https://i.pravatar.cc/40" alt="User" />
+        </div>
+      </header>
+
+      <!-- Dynamic Dashboard -->
+      <main class="dashboard">
+        <!-- Summary Card (Glassmorphism) -->
+        <section class="summary-card" data-aos="fade-up">
+          <div class="balance">
+            <h2>Total Balance</h2>
+            <p class="amount">₹<span id="total-amount">8,429.00</span></p>
+          </div>
+          <div class="sparkline-chart">
+            <!-- SVG Chart would go here -->
+          </div>
+        </section>
+
+        <!-- Expense Form (Floating Labels) -->
+        <form class="expense-form" id="expense-form" data-aos="fade-up">
+          <div class="form-group floating">
+            <input type="text" id="expense-name" required />
+            <label>Expense Name</label>
+            <span class="material-icons-round">receipt</span>
+          </div>
+
+          <div class="form-group floating">
+            <input type="number" id="expense-amount" required />
+            <label>Amount (₹)</label>
+            <span class="material-icons-round">currency_rupee</span>
+          </div>
+
+          <div class="form-group floating">
+            <input type="date" id="expense-date" required />
+            <label>Date</label>
+            <span class="material-icons-round">event</span>
+          </div>
+
+          <div class="form-group floating select-group">
+            <select id="expense-category" required>
+              <option value="" disabled selected></option>
+              <option value="Food">🍽️ Food</option>
+              <option value="Transport">🚌 Transport</option>
+              <option value="Shopping">🛍️ Shopping</option>
+              <option value="Utilities">💡 Utilities</option>
+            </select>
+            <label>Category</label>
+            <span class="material-icons-round">category</span>
+          </div>
+
+          <button type="submit" class="cta-button">
+            <span class="material-icons-round">add_circle</span>
+            Add Expense
+          </button>
+        </form>
+
+        <!-- Data Visualization -->
+        <section class="analytics" data-aos="fade-up">
+          <div class="pie-chart">
+            <!-- SVG Pie Chart -->
+          </div>
+          <div class="category-breakdown">
+            <h3>Spending by Category</h3>
+            <ul class="category-list">
+              <!-- Dynamically generated -->
+            </ul>
+          </div>
+        </section>
+
+        <!-- Enhanced Data Table -->
+        <section class="expense-table-container">
+          <div class="table-header">
+            <h3>Recent Transactions</h3>
+            <div class="table-actions">
+              <button class="filter-button active">All</button>
+              <button class="filter-button">This Month</button>
+            </div>
+          </div>
+
+          <table class="expense-table">
+            <!-- Table content -->
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800 });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

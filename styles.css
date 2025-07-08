@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: rgb(18, 18, 18);
+  accent-color: #fff;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.wrapper {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0px auto;
+  margin-top: 20px;
+  padding: 0px 20px;
+}
+
+.container {
+  padding: 1rem;
+  width: 100%;
+}
+
+.app-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.expense-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category__container {
+  gap: 1rem;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.category__container button {
+  padding: 0px 20px;
+  border: none;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+}
+
+.expense-form input,
+.category__container input,
+.expense-form select {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  /* width: 100%; */
+  font-size: 16px;
+  outline: none;
+  border: 1px solid rgb(59, 59, 59);
+  background-color: rgba(39, 39, 39, 0.9);
+  color: #e0e0e0;
+}
+
+.expense-form button {
+  padding: 0.75rem;
+  background-color: #004d61;
+  border: none;
+  border-radius: 1rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.expense-form button:hover {
+  opacity: 0.8;
+}
+
+.summary {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00c896;
+  margin-bottom: 1rem;
+}
+
+.res__table {
+  overflow-y: auto;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(59, 59, 59);
+}
+
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.expense-table th {
+  text-align: left;
+  padding: 1rem;
+  background-color: rgba(39, 39, 39, 0.9);
+  color: #fff;
+  border-bottom: 2px solid rgb(59, 59, 59);
+}
+.expense-table td {
+  text-align: left;
+  padding: 1rem;
+  color: #fff;
+  /* border-bottom: 1px solid rgb(59, 59, 59); */
+}
+
+.expense-table tr:nth-child(odd) {
+  background-color: rgba(39, 39, 39, 0.5);
+}
+
+.expense-table th {
+  color: #9ca3af;
+  font-weight: 500;
+}
+.expense-table .delete-btn {
+  background-color: #ff4c61;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.expense-table .delete-btn:hover {
+  background-color: #e0243a;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5em;
+  padding-right: 2.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #cbd5e1; /* light-gray for dark theme */
+  font-weight: 500;
+  margin-top: 1rem; /* space above input fields */
+}
+
+@media screen and (max-width: 320px) {
+  .category__container {
+    width: 100%;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .category__container button {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Small devices (portrait phones, less than 576px) */
+@media screen and (min-width: 320px) and (max-width: 576px) {
+  body {
+    background-color: green;
+  }
+  .category__container {
+    width: 100%;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .category__container button {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Medium devices (landscape phones/tablets, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    background-color: red;
+  }
+  /* .category__container {
+    width: 100%;
+    margin-bottom: 20px;
+    flex-direction: column;
+  } */
+
+  .category__container button {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Large devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+/* Extra large devices (laptops/desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  body {
+    background-color: pink;
+  }
+}
+
+/* XXL (large desktops) */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+  body {
+    background-color: burlywood;
+  }
+}
+
+/* Ultra-wide monitors (optional) */
+@media screen and (min-width: 1440px) {
+  body {
+    /* background-color: aqua; */
+  }
+}

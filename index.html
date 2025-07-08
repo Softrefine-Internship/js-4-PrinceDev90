@@ -4,13 +4,138 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- google icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    
+    <div class="wrapper">
+      <h1 class="app-title">Expense Tracker</h1>
+      <div class="container">
+        <div class="category__container">
+          <input type="text" id="catagory_name" placeholder="add Category" />
+          <button>Add Category</button>
+        </div>
+
+        <form class="expense-form" id="expense-form">
+          <input
+            type="text"
+            id="expense-name"
+            placeholder="Expense name"
+            required
+          />
+          <input
+            type="number"
+            id="expense-amount"
+            placeholder="Amount ₹"
+            required
+          />
+          <input type="date" id="expense-date" required />
+          <select id="expense-category" class="custom-select" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="Food">🍽️ Food</option>
+            <option value="Transport">🚌 Transport</option>
+            <option value="Shopping">🛍️ Shopping</option>
+            <option value="Utilities">💡 Utilities</option>
+          </select>
+          <button type="submit">Add Expense</button>
+        </form>
+
+        <div class="summary">
+          <p>Total: ₹<span id="total-amount">2350.00</span></p>
+        </div>
+        <div class="res__table">
+          <table class="expense-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th colspan="2">Action</th>
+              </tr>
+            </thead>
+            <tbody id="expense-body">
+              <tr>
+                <td>1</td>
+                <td>Lunch at Cafe</td>
+                <td style="color: #ff4c61">₹350.00</td>
+                <td>2025-07-08</td>
+                <td>🍽️ Food</td>
+                <td><button class="delete-btn">Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Electricity Bill</td>
+                <td style="color: #ff4c61">₹2000.00</td>
+                <td>2025-07-06</td>
+                <td>💡 Utilities</td>
+                <td><button class="delete-btn">Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Lunch at Cafe</td>
+                <td style="color: #ff4c61">₹350.00</td>
+                <td>2025-07-08</td>
+                <td>🍽️ Food</td>
+                <td><button class="delete-btn">Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Electricity Bill</td>
+                <td style="color: #ff4c61">₹2000.00</td>
+                <td>2025-07-06</td>
+                <td>💡 Utilities</td>
+                <td><button class="delete-btn">Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Lunch at Cafe</td>
+                <td style="color: #ff4c61">₹350.00</td>
+                <td>2025-07-08</td>
+                <td>🍽️ Food</td>
+                <td><button class="delete-btn">Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Electricity Bill</td>
+                <td style="color: #ff4c61">₹2000.00</td>
+                <td>2025-07-06</td>
+                <td>💡 Utilities</td>
+                <td><button class="delete-btn">Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Lunch at Cafe</td>
+                <td style="color: #ff4c61">₹350.00</td>
+                <td>2025-07-08</td>
+                <td>🍽️ Food</td>
+                <td><button class="delete-btn">Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
