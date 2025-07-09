@@ -4,63 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="Track your daily expenses easily with this responsive and accessible Expense Tracker app."
     />
-
-    <!-- google icons -->
+    <link rel="icon" type="image/png" href="imgs/favi.png" />
+    <!-- Phosphor Icons -->
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
       rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
-
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="toast.css" />
   </head>
   <body>
+    <div id="toast-container"></div>
     <div class="wrapper">
       <h1 class="app-title">Expense Tracker</h1>
       <div class="container">
         <div class="category__container">
-          <input type="text" id="catagory_name" placeholder="add Category" /> 
-          <button>Add Category</button>
+          <input type="text" id="catagory_name" placeholder="add Category" />
+          <button id="add_category">Add Category</button>
         </div>
 
         <form class="expense-form" id="expense-form">
+          <label for="expense-name">Expense Name</label>
           <input
             type="text"
             id="expense-name"
+            name="expense-name"
             placeholder="Expense name"
             required
           />
+
+          <label for="expense-amount">Amount (₹)</label>
           <input
             type="number"
             id="expense-amount"
+            inputmode="numeric"
+            name="expense-amount"
             placeholder="Amount ₹"
             required
           />
-          <input type="date" id="expense-date" required />
-          <select id="expense-category" class="custom-select" required>
+
+          <label for="expense-date">Date</label>
+          <input type="date" name="expense-date" id="expense-date" required />
+
+          <label for="expense-category">Category</label>
+          <select
+            id="expense-category"
+            name="expense-category"
+            class="custom-select"
+            required
+          >
             <option value="" disabled selected>Select category</option>
-            <option value="Food">🍽️ Food</option>
-            <option value="Transport">🚌 Transport</option>
-            <option value="Shopping">🛍️ Shopping</option>
-            <option value="Utilities">💡 Utilities</option>
+            <option value="🍽️ Food">🍽️ Food</option>
+            <option value="🚌 Transport">🚌 Transport</option>
+            <option value="🛍️ Shopping">🛍️ Shopping</option>
+            <option value="💡 Utilities">💡 Utilities</option>
           </select>
+
           <button type="submit">Add Expense</button>
         </form>
 
         <div class="summary">
-          <p>Total: ₹<span id="total-amount">2350.00</span></p>
+          <p>Total : ₹ <span id="total-amount"></span></p>
         </div>
         <div class="res__table">
           <table class="expense-table">
             <thead>
               <tr>
-                <th>#</th>
                 <th>Name</th>
                 <th>Amount</th>
                 <th>Date</th>
@@ -68,74 +82,65 @@
                 <th colspan="2">Action</th>
               </tr>
             </thead>
-            <tbody id="expense-body">
-              <tr>
-                <td>1</td>
-                <td>Lunch at Cafe</td>
-                <td style="color: #ff4c61">₹350.00</td>
-                <td>2025-07-08</td>
-                <td>🍽️ Food</td>
-                <td><button class="delete-btn">Delete</button></td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Electricity Bill</td>
-                <td style="color: #ff4c61">₹2000.00</td>
-                <td>2025-07-06</td>
-                <td>💡 Utilities</td>
-                <td><button class="delete-btn">Delete</button></td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Lunch at Cafe</td>
-                <td style="color: #ff4c61">₹350.00</td>
-                <td>2025-07-08</td>
-                <td>🍽️ Food</td>
-                <td><button class="delete-btn">Delete</button></td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Electricity Bill</td>
-                <td style="color: #ff4c61">₹2000.00</td>
-                <td>2025-07-06</td>
-                <td>💡 Utilities</td>
-                <td><button class="delete-btn">Delete</button></td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Lunch at Cafe</td>
-                <td style="color: #ff4c61">₹350.00</td>
-                <td>2025-07-08</td>
-                <td>🍽️ Food</td>
-                <td><button class="delete-btn">Delete</button></td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Electricity Bill</td>
-                <td style="color: #ff4c61">₹2000.00</td>
-                <td>2025-07-06</td>
-                <td>💡 Utilities</td>
-                <td><button class="delete-btn">Delete</button></td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>Lunch at Cafe</td>
-                <td style="color: #ff4c61">₹350.00</td>
-                <td>2025-07-08</td>
-                <td>🍽️ Food</td>
-                <td><button class="delete-btn">Delete</button></td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-            </tbody>
+            <tbody id="expense-body"></tbody>
           </table>
         </div>
       </div>
     </div>
+    <!-- Update Expense Modal -->
+    <div id="updateModal" class="modal">
+      <div class="modal-content">
+        <h2>Update Expense</h2>
+        <form id="updateForm">
+          <input type="hidden" id="updateId" name="updateId" />
+          <label for="updateName">Expense Name</label>
+          <input
+            type="text"
+            id="updateName"
+            name="updateName"
+            placeholder="Expense name"
+            required
+          />
+
+          <label for="updateAmount">Amount (₹)</label>
+          <input
+            type="number"
+            id="updateAmount"
+            name="updateAmount"
+            placeholder="Amount ₹"
+            required
+          />
+
+          <label for="updateDate">Date</label>
+          <input type="date" name="updateDate" id="updateDate" required />
+
+          <label for="updateCategory">Category</label>
+          <select
+            id="updateCategory"
+            name="updateCategory"
+            class="custom-select"
+            required
+          >
+            <option value="" disabled selected>Select category</option>
+            <option value="🍽️ Food">🍽️ Food</option>
+            <option value="🚌 Transport">🚌 Transport</option>
+            <option value="🛍️ Shopping">🛍️ Shopping</option>
+            <option value="💡 Utilities">💡 Utilities</option>
+          </select>
+
+          <!-- <button type="submit">Add Expense</button> -->
+
+          <div class="modal-buttons">
+            <button type="button" id="cancel" class="delete-btn">Cancel</button>
+            <button type="submit" class="update-btn change_color" id="Update">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="toast.js" defer></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
