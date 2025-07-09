@@ -4,6 +4,7 @@ const expenseName = document.querySelector("#expense-name");
 const expenseAmount = document.querySelector("#expense-amount");
 const expenseDate = document.querySelector("#expense-date");
 const expenseCategory = document.querySelector("#expense-category");
+const updateExpenseCategory = document.querySelector("#updateCategory");
 const form = document.querySelector("#expense-form");
 const expenseBody = document.querySelector("#expense-body");
 const updateModal = document.querySelector("#updateModal");
@@ -41,6 +42,7 @@ function handleCategoryBtn(e) {
 
   const categoryInputVal = categoryInput.value.trim();
   const oldCategories = JSON.parse(storageGetter("categories")) || [];
+
   if (oldCategories.includes(categoryInputVal)) {
     showToast("error", "Category already exists.");
     return;
@@ -54,28 +56,41 @@ function handleCategoryBtn(e) {
 }
 
 function renderCategorySelect(category) {
+  console.log(category);
+  const option1 = document.createElement("option");
+  option1.value = category;
+  option1.textContent = category;
+  expenseCategory.appendChild(option1);
+
+  const option2 = document.createElement("option");
+  option2.value = category;
+  option2.textContent = category;
+  updateExpenseCategory.appendChild(option2);
+  // updateExpenseCategory.appendChild(option);
+}
+
+function createOption(value) {
   const option = document.createElement("option");
-  option.value = category;
-  option.textContent = category;
-  expenseCategory.appendChild(option);
+  option.value = value;
+  option.textContent = value;
+  return option;
+}
+
+function setDefaultOptions(selectElement) {
+  const defaults = ["🍽️ Food", "🚌 Transport", "🛍️ Shopping", "💡 Utilities"];
+  selectElement.innerHTML = `<option value="" disabled selected>Select category</option>`;
+  defaults.forEach((cat) => selectElement.appendChild(createOption(cat)));
 }
 
 function getCategoriesFromStorage() {
   const oldCategories = JSON.parse(storageGetter("categories")) || [];
 
-  expenseCategory.innerHTML = `
-    <option value="" disabled selected>Select category</option>
-    <option value="🍽️ Food">🍽️ Food</option>
-    <option value="🚌 Transport">🚌 Transport</option>
-    <option value="🛍️ Shopping">🛍️ Shopping</option>
-    <option value="💡 Utilities">💡 Utilities</option>
-    `;
+  setDefaultOptions(expenseCategory);
+  setDefaultOptions(updateExpenseCategory);
 
   oldCategories.forEach((category) => {
-    const option = document.createElement("option");
-    option.value = category;
-    option.textContent = category;
-    expenseCategory.appendChild(option);
+    expenseCategory.appendChild(createOption(category));
+    updateExpenseCategory.appendChild(createOption(category));
   });
 }
 
