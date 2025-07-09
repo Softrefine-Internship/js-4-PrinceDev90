@@ -144,7 +144,7 @@ function getExpensesFromStorage() {
     const tr = document.createElement("tr");
     tr.id = "availableStatus";
     tr.innerHTML = `
-        <td colspan="6" style="text-align:center;">Add new Expense!!</td>
+        <td colspan="6" style="text-align:center;">No expenses yet. Start by adding your first one!</td>
       `;
     expenseBody.appendChild(tr);
   }
@@ -193,7 +193,7 @@ function handleDeleteExpense(e, id) {
   if (oldFormData.length === 1) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-        <td colspan="6" style="text-align:center;">Add new Expense!!</td>
+        <td colspan="6" style="text-align:center;">No expenses yet. Start by adding your first one!</td>
       `;
     expenseBody.appendChild(tr);
   }
